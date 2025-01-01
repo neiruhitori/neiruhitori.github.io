@@ -205,6 +205,8 @@ async function pilihwarna() {
             showCancelButton: true,
             cancelButtonText: 'Ganti',
             confirmButtonText: 'Yakin',
+            confirmButtonColor: 'yellow', // Tombol "Yakin" ungu
+            cancelButtonColor: 'purple', // Tombol "Ganti" kuning
         });
         if (warna2) {
             await swals.fire('Oke!', `Sekarang lihat ini ya ❤️`);
