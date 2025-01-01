@@ -203,15 +203,15 @@ async function pilihwarna() {
             title: nama + ' yakin pilih warna Kuning?',
             text: 'Atau mau ganti warna aja nih?',
             showCancelButton: true,
-            confirmButtonText: 'Ganti',
-            cancelButtonText: 'Yakin',
+            cancelButtonText: 'Ganti',
+            confirmButtonText: 'Yakin',
         });
         if (warna2) {
             await swals.fire('Oke!', `Sekarang lihat ini ya ❤️`);
             showKonten(); // Tampilkan konten & ubah background
             startTyping(); // Mulai animasi teks
         } else {
-            await swals.fire('Oke, memilih Kuning!', 'Kuning juga pilihan bagus kok! 😂');
+            await swals.fire('Oke, memilih Ungu!', 'sebenernya sama aja sih, cuman beda warna xixi! 😂');
             await swals.fire(`Sekarang lihat ini ya ❤️`);
             showKonten(); // Tampilkan konten & ubah background
             startTyping(); // Mulai animasi teks
