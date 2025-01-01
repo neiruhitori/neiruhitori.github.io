@@ -1,0 +1,242 @@
+<html>
+<meta charset='UTF-8'/><meta content='width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5' name='viewport'/><meta content='IE=edge' http-equiv='X-UA-Compatible'/><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet"><script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark/dark.css"><script src="https://kit.fontawesome.com/4f3ce16e3e.js" crossorigin="anonymous"></script><link href="https://untukkamu.likeadream.repl.co/style.css" rel="stylesheet" type="text/css" /><script src="https://untukkamu.likeadream.repl.co/script.js"></script>
+<head>
+</head>
+<body>
+<style>
+body {
+    background-image: url("https://raw.githubusercontent.com/neiruhitori/perpustakaan-web/refs/heads/main/project-ta/public/AdminLTE-3.2.0/dist/img/WhatsApp%20Image%202025-01-01%20at%2002.49.28.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;  /* Menjaga proporsi gambar */
+    background-position: 50% center;  /* Posisi gambar sedikit ke kiri */
+}
+#konten {
+    background-color: transparent;
+    display: none; /* Sembunyikan elemen */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.catatan {
+    color: white !important;
+}
+.button {
+    background: #55009E;
+    color: white !important;
+}
+.swal2-title, .swal2-html-container {
+    color: #000000 !important;
+}
+.heart-button {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: none;
+    cursor: pointer;
+    font-size: 100px;
+    color: #ff4d4d;
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+</style>
+<button id="heartButton" class="heart-button" onclick="startBirthday()">❤️</button>
+
+<div id="bodyblur"></div>
+
+<div id="konten">
+    <div id="fotoloveu">
+        <div class="image">
+            <img src="https://i.postimg.cc/J0vtF4Sj/the-hype-house.png" id="animasi" width="130px" height="130px"/>
+        </div>
+    </div>
+
+    <p class='catatan sek' data-text='&#9829;' id='koteks'>
+        <b style="font-size:1.1rem">Happy Birthday, <span id="kamu"></span> &#129395;</b><br>
+        <span id="typewriter"></span>
+    </p>
+    
+
+    <div id="tombWA"><a class='button' onClick='bukaWa();'>Kirim Pesan</a></div>
+</div>
+
+<script>
+    function showKonten() {
+    const konten = document.getElementById("konten");
+    konten.style.display = "block"; // Tampilkan elemen
+    document.body.style.backgroundColor = "#000"; // Ubah latar belakang jadi hitam
+}
+
+  
+function play() {
+    var audio = new Audio('https://feeldreams.github.io/audio/anditsnot.mp3');
+    audio.play();
+}         
+
+function bukaWa(){
+    window.location = "https://api.whatsapp.com/send?phone=+6289602093439&text=" + window.nama + " udah liat semuanya. Makasi ya ><" + "%0A%0A" + "- " + dateTime;
+} 
+
+var today = new Date();
+var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear()+'.';
+var dateTime = date;
+
+const swals = Swal.mixin({
+    backdrop: 'rgba(0,0,123,0.4)', 
+    confirmButtonColor: '#55009E', 
+    cancelButtonColor: '#FFCA00', 
+    allowOutsideClick: false,
+});
+
+async function startBirthday() {
+    document.getElementById('heartButton').style.display = 'none'; // Hilangkan tombol heart
+    play(); // Putar audio
+    window.nama = "Prisca Dwi Anggita"; // Tetapkan nama
+    document.getElementById("kamu").innerHTML = window.nama; // Tampilkan nama di teks
+    await swals.fire('Hai, ' + window.nama + '  🥳', 'Kamu ultah ya hari ini? Aku ada pilihan nih buat kamu');
+    pilihwarna(); // Lanjutkan ke SweetAlert berikutnya
+}
+    
+
+mulai();
+
+function tombol() {
+    document.getElementById('tombWA').style.visibility = "visible";
+    document.getElementById('tombWA').style.opacity = "1";
+}  
+
+
+
+const body = document.querySelector("body");
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "fas fa-heart";
+    heart.style.left = (Math.random() * 90)+"vw";
+    heart.style.animationDuration = (Math.random()*3)+2+"s"
+    body.appendChild(heart);
+}
+
+setInterval(function name(params) {
+    var heartArr = document.querySelectorAll(".fa-heart")
+    if (heartArr.length > 50) {
+       heartArr[0].remove()
+    }
+},100);
+
+function typeTextWithLineBreaks(elementId, text, speed) {
+    const element = document.getElementById(elementId);
+    const lines = text.split("<br>");
+    let lineIndex = 0;
+    let charIndex = 0;
+
+    function typeLine() {
+        if (lineIndex < lines.length) {
+            if (charIndex < lines[lineIndex].length) {
+                element.innerHTML += lines[lineIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeLine, speed);
+            } else {
+                // Baris selesai, tambahkan <br> dan lanjutkan
+                element.innerHTML += "<br>";
+                charIndex = 0;
+                lineIndex++;
+                setTimeout(typeLine, speed);
+            }
+        }
+    }
+    typeLine();
+}
+
+async function expl() {
+    document.getElementById('bodyblur').style.opacity = "1";
+    document.getElementById('bodyblur').style.visibility = "visible";
+    setTimeout(duar, 200);
+}
+
+async function duar() {
+    var e1 = document.getElementById('animasi');
+    e1.classList.add("degdeg");
+    document.getElementById('konten').style.top = "0";
+    document.getElementById('fotoloveu').style.opacity = "1";
+    document.getElementById('fotoloveu').style.height = "140px";
+    document.getElementById('fotoloveu').style.margin = "50px 0 0 0";
+    document.getElementById('koteks').style.opacity = "1";
+    setInterval(createHeart, 200);
+    document.body.style.backgroundColor = "#000";
+}
+
+async function pilihwarna() {
+    var { isConfirmed: warna } = await swals.fire({
+        title: nama + ' mau pilih warna apa nih?',
+        showCancelButton: true,
+        confirmButtonText: 'Ungu',
+        cancelButtonText: 'Kuning',
+    });
+    if (warna) {
+        await swals.fire('Yeayy!', 'Kalo kamu pilih <b>Ungu</b> berarti kamu <b>bukan Prisca</b>, but your a <b>Princess</b>! 🥳');
+        var { isConfirmed: warna2 } = await swals.fire({
+            title: nama + ' yakin pilih warna Ungu?',
+            text: 'Atau mau ganti warna aja nih?',
+            showCancelButton: true,
+            confirmButtonText: 'Yakin',
+            cancelButtonText: 'Ganti',
+        });
+        if (warna2) {
+            await swals.fire('Oke!', `Sekarang lihat ini ya ❤️`);
+            showKonten(); // Tampilkan konten & ubah background
+            startTyping(); // Mulai animasi teks
+        } else {
+            await swals.fire('Oke, memilih Kuning!', 'sebenernya sama aja sih, cuman beda warna xixi! 😂');
+            await swals.fire(`Sekarang lihat ini ya ❤️`);
+            showKonten(); // Tampilkan konten & ubah background
+            startTyping(); // Mulai animasi teks
+        }
+    } else {
+        await swals.fire('Yeayy!', 'Kalo kamu pilih <b>Kuning</b> berarti kamu <b>bukan Prisca</b>, but your a <b>Princess</b>! 🥳');
+        var { isConfirmed: warna2 } = await swals.fire({
+            title: nama + ' yakin pilih warna Kuning?',
+            text: 'Atau mau ganti warna aja nih?',
+            showCancelButton: true,
+            confirmButtonText: 'Ganti',
+            cancelButtonText: 'Yakin',
+        });
+        if (warna2) {
+            await swals.fire('Oke!', `Sekarang lihat ini ya ❤️`);
+            showKonten(); // Tampilkan konten & ubah background
+            startTyping(); // Mulai animasi teks
+        } else {
+            await swals.fire('Oke, memilih Kuning!', 'Kuning juga pilihan bagus kok! 😂');
+            await swals.fire(`Sekarang lihat ini ya ❤️`);
+            showKonten(); // Tampilkan konten & ubah background
+            startTyping(); // Mulai animasi teks
+}
+
+    }
+}
+
+
+function startTyping() {
+    typeTextWithLineBreaks(
+        "typewriter",
+        `Semoga semua yang diinginkan tercapai dengan sempurna!<br> 
+        Lahirmu ke dunia ini adalah anugerah,<br>
+        dan senyumanmu membuat dunia ini akan semakin indah.<br> 
+        Jangan lupa senyum xixi :)<br>
+        Yeah hari ini adalah hari Princess kamu xixi.<br>
+        Jadi semangat yah.<br>
+        Maaf cuman bisa ngasih ini xixi.<br>   
+        Oh iyah jangan lupa pesan ini kirim ke aku yah<br>
+        Khamsahamnida.`,
+        50
+    );
+}
+
+</script>
+</body>
+</html>
