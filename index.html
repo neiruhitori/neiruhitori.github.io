@@ -5,7 +5,7 @@
 <body>
 <style>
 body {
-    background-image: url("https://raw.githubusercontent.com/neiruhitori/perpustakaan-web/refs/heads/main/project-ta/public/AdminLTE-3.2.0/dist/img/WhatsApp%20Image%202025-01-01%20at%2002.49.28.jpeg");
+    background-image: url("https://raw.githubusercontent.com/neiruhitori/perpustakaan-web/refs/heads/main/project-ta/public/AdminLTE-3.2.0/dist/img/aulya.jpeg");
     background-repeat: no-repeat;
     background-size: cover;  /* Menjaga proporsi gambar */
     background-position: 50% center;  /* Posisi gambar sedikit ke kiri */
@@ -75,7 +75,7 @@ body {
 
   
 function play() {
-    var audio = new Audio('https://feeldreams.github.io/audio/anditsnot.mp3');
+    var audio = new Audio('https://raw.githubusercontent.com/neiruhitori/perpustakaan-web/refs/heads/main/project-ta/public/AdminLTE-3.2.0/dist/img/AulyaCover.mp3');
     audio.play();
 }         
 
@@ -97,7 +97,7 @@ const swals = Swal.mixin({
 async function startBirthday() {
     document.getElementById('heartButton').style.display = 'none'; // Hilangkan tombol heart
     play(); // Putar audio
-    window.nama = "Prisca Dwi Anggita"; // Tetapkan nama
+    window.nama = "Naila Aulyatuz Zahra"; // Tetapkan nama
     document.getElementById("kamu").innerHTML = window.nama; // Tampilkan nama di teks
     await swals.fire('Hai, ' + window.nama + '  🥳', 'Kamu ultah ya hari ini? Aku ada pilihan nih buat kamu');
     pilihwarna(); // Lanjutkan ke SweetAlert berikutnya
@@ -179,7 +179,7 @@ async function pilihwarna() {
         cancelButtonText: 'Kuning',
     });
     if (warna) {
-        await swals.fire('Yeayy!', 'Kalo kamu pilih <b>Ungu</b> berarti kamu <b>bukan Prisca</b>, but your a <b>Princess</b>! 🥳');
+        await swals.fire('Yeayy!', 'Kalo kamu pilih <b>Ungu</b> berarti kamu <b>bukan Aulya</b>, kamu adalah <b>Peninja</b>, iyap betul suka ngilang xixi canda</b>! 🥳');
         var { isConfirmed: warna2 } = await swals.fire({
             title: nama + ' yakin pilih warna Ungu?',
             text: 'Atau mau ganti warna aja nih?',
@@ -198,7 +198,7 @@ async function pilihwarna() {
             startTyping(); // Mulai animasi teks
         }
     } else {
-        await swals.fire('Yeayy!', 'Kalo kamu pilih <b>Kuning</b> berarti kamu <b>bukan Prisca</b>, but your a <b>Princess</b>! 🥳');
+        await swals.fire('Yeayy!', 'Kalo kamu pilih <b>Kuning</b> berarti kamu <b>bukan Aulya</b>, kamu adalah <b>peninja</b>, iyap betul suka ngilang xixi canda</b>! 🥳');
         var { isConfirmed: warna2 } = await swals.fire({
             title: nama + ' yakin pilih warna Kuning?',
             text: 'Atau mau ganti warna aja nih?',
@@ -230,8 +230,11 @@ function startTyping() {
         Lahirmu ke dunia ini adalah anugerah,<br>
         dan senyumanmu membuat dunia ini akan semakin indah.<br> 
         Jangan lupa senyum xixi :)<br>
-        Yeah hari ini adalah hari Princess kamu xixi.<br>
-        Jadi semangat yah.<br>
+        Yeah hari ini adalah hari spesial kamu yang ke 18 tahun xixi.<br>
+        Wellcome to 18 Years.<br>
+        Jadi harus tetap semangat yah.<br>
+        Calon Dokter harus semangat yakali ga semangat.<br>
+        Nanti pasiennya bisa ga ketolong...<br>
         Maaf cuman bisa ngasih ini xixi.<br>   
         Oh iyah jangan lupa pesan ini kirim ke aku yah<br>
         Khamsahamnida.`,
